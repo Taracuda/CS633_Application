@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CollectRImage from './images/CollectR.jpg'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={CollectRImage} className="CollectR-logo" alt="CollectR-logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Welcome to our term project!
         </p>
         <a
           className="App-link"
@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Check out React
         </a>
       </header>
     </div>
