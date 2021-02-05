@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Check out Collectors Universe
+          Check out Collectors Universe!!!
         </a>
       </header>
     </div>
