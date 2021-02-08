@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Auth } from 'aws-amplify';
+import _authenticationStorage from './AuthenticationStorage';
+
+const config = {
+  Auth: {
+    mandatorySignIn: true,
+    region: 'us-east-2',
+    userPoolWebClientId: '736ku2v8dpf2nfdq24cbin9nf5',
+    userPoolId: 'us-east-2_jlhQxNdVU',
+    storage: _authenticationStorage,
+  },
+};
+Auth.configure(config);
 
 ReactDOM.render(
   <React.StrictMode>

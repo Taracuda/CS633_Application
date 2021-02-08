@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import { LoginComponent } from './components/LoginComponent';
+import IAuthState from './domain/IAuthState';
 import CollectRImage from './images/CollectR.jpg'
 
 function App() {
+  const signedOut = 'signedOut';
+  const [authState, setAuthState] = useState<IAuthState>({
+    authState: '',
+  });
+  useEffect(() => {
+    setAuthState({
+      authState: signedOut,
+    });
+  }, []);
+  const authStateChange = (authStateChange: string): void => {
+    setAuthState({
+      authState: authStateChange,
+    });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={CollectRImage} className="CollectR-logo" alt="CollectR-logo" />
-        <p>
-          Welcome to our term project!
-        </p>
-        <a
-          className="App-link"
-          href="https://www.collectorsuniverse.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Check out Collectors Universe!!!
-        </a>
+         <LoginComponent authState={authState}
+                  onAuthStateChanged={authStateChange}
+                  />
       </header>
     </div>
   );
