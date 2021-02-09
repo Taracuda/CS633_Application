@@ -37,12 +37,9 @@ function App() {
             </div>
           </div>
           <div className="App">
-            <header className="App-header">
-              <img src={CollectRImage} className="CollectR-logo" alt="CollectR-logo" />
               <LoginComponent authState={authState}
                 onAuthStateChanged={authStateChange}
               />
-            </header>
           </div>
         </div>
         <div className='child item-center'>
