@@ -2,6 +2,7 @@ import React from 'react';
 import { Authenticator } from 'aws-amplify-react';
 import { Grid } from 'semantic-ui-react';
 import { IAuthProps } from '../domain/IAuthProps';
+import { Redirect } from 'react-router-dom';
 
 const UserAuthenticator: React.FC<IAuthProps> = (props: IAuthProps) => {
   const signedIn = 'signedIn';
@@ -28,6 +29,7 @@ const UserAuthenticator: React.FC<IAuthProps> = (props: IAuthProps) => {
       )}
       {props.authState.authState === signedIn && (
         <>
+        <Redirect to="/dashboard" />
           <div style={{ height: '100%' }}>{props.children}</div>
         </>
       )}
