@@ -1,4 +1,5 @@
 import React from "react";
+import CollectRImage from '../images/CollectRImage.png'
 
 export const PageLayoutComponent: React.FC = () => {
 
@@ -14,7 +15,7 @@ export const PageLayoutComponent: React.FC = () => {
                             <h1 className='box-text'>Box 2</h1>
                         </div>
                         <div className='left-box'>
-                            <h1 className='box-text'>Box 3</h1>
+                            <img src={CollectRImage} className="CollectR-logo" alt="CollectR-logo" />
                         </div>
                     </div>
                 </div>
@@ -37,6 +38,5 @@ export const PageLayoutComponent: React.FC = () => {
                 </div>
             </div>
         </div>
-
-    );    
-}   
+    );
+}

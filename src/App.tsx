@@ -22,16 +22,16 @@ function App() {
   };
 
   return (
-    //For now, this PageLayoutComponent tag is allowing you to see the page you're working on (PageLayoutComponent.tsx) 
+    //For now, this PageLayoutComponent tag is allowing you to see the page you're working on (PageLayoutComponent.tsx)
     //instead of the initial landing page. Let me know before you make a PR and we'll revert this back.
     //The HeaderComponent tag contains the CollectR image (HeaderComponent.tsx)
-    <PageLayoutComponent />
-          // <div className="App">
-          //     <HeaderComponent />
-          //     <LoginComponent authState={authState}
-          //       onAuthStateChanged={authStateChange}
-          //     />
-          // </div>
+    // <PageLayoutComponent />
+          <div className="App">
+              <HeaderComponent />
+              <LoginComponent authState={authState}
+                onAuthStateChanged={authStateChange}
+              />
+          </div>
   );
 }
 
