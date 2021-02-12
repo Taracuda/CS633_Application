@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import IAuthState from '../../domain/IAuthState';
 import { Dashboard } from '../Dashboard';
+import { HomeComponent } from '../HomePageComponent';
 import { LoginComponent } from '../LoginComponent';
 import { AuthenticatedRoute } from './AuthenticatedRoute';
 export const Routes: React.FC = () => {
@@ -17,7 +18,7 @@ export const Routes: React.FC = () => {
     <>
       <BrowserRouter>
         <Switch>
-          <Redirect from="/" exact to="/login" />
+          <Redirect from="/" exact to="/home" />
           <Route
             path="/login"
             render={(props) => (
@@ -30,6 +31,11 @@ export const Routes: React.FC = () => {
               </>
             )}
           />
+          <Route
+             path="/home"
+             component={HomeComponent}
+          />
+
           <AuthenticatedRoute
             authState={authState.authState}
             path="/dashboard"
