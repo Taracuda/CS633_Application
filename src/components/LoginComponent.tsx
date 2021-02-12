@@ -4,19 +4,19 @@ import Bootstrap from '../domain/Bootstrap';
 import { ILoginProps } from '../domain/ILoginProps';
 import SignUpConfig from '../domain/SignupConfig';
 import UserAuthenticator from './UserAuthenticator';
+import CollectRImage from '../images/CollectR.jpg';
+
 
 export const LoginComponent: React.FC<ILoginProps> = (props) => {
-    const authChangeHandler = (authStateChange: string) => {
-      console.log(authStateChange);
-      };
       return (
         <>
+        <img src={CollectRImage} className="CollectR-logo" alt="CollectR-logo" />
           <UserAuthenticator
             {...props}
             usernameAttributes={UsernameAttributes.EMAIL}
             theme={Bootstrap}
             signUpConfig={SignUpConfig}
-            onAuthStateChanged={authChangeHandler}
+            onAuthStateChanged={props.onAuthStateChanged}
             authState={props.authState}
           />
         </>
