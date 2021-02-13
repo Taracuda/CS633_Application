@@ -5,10 +5,6 @@ import './App.css';
 import { Routes } from './components/routes/Routes';
 
 function App() {
-  useEffect(() => {
-    Auth.signOut();
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
