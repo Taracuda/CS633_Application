@@ -1,9 +1,8 @@
 import { createContext } from "react";
 import { CollectionModel } from "../domain/CollectionModel";
-import {observable} from 'mobx';
 
 class CollectionStore {
-    @observable collections: CollectionModel[] = [];
+    collections: CollectionModel[] = [];
 
     public createCollection = (newCollection: CollectionModel): void => {
         newCollection.collectionId = this.collections.length + Math.floor((Math.random() * 100));

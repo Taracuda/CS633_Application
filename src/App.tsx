@@ -1,5 +1,4 @@
-import { Auth } from 'aws-amplify';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { Routes } from './components/routes/Routes';
