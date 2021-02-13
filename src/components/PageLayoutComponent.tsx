@@ -1,4 +1,4 @@
-import React, { cloneElement, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { observer } from "mobx-react-lite";
 import "./PageLayoutComponent.css";
