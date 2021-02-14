@@ -1,11 +1,13 @@
 import { Auth } from 'aws-amplify';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./Dashboard.css";
+import PageLayoutComponent from './PageLayoutComponent';
 
 export const Dashboard: React.FC = () => {
     return (
     <>
-    <div>This is the placeholder for collector dashboard</div>
-    <button onClick={() => {Auth.signOut()}}><Link to={"/home"}>Sign Out</Link></button>
+    <button className="sign-out-button" onClick={() => {Auth.signOut()}}><Link to={"/home"}>Sign Out</Link></button>
+    <PageLayoutComponent />
     </>)
 }
