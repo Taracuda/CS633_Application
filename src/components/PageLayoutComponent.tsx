@@ -7,6 +7,7 @@ import { CollectionModel } from "../domain/CollectionModel";
 import { CollectionBox } from "./CollectionBox";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import ItemStore from "../Database/ItemStore";
 
 const element = <FontAwesomeIcon icon={faPlus} className="add-icon" />
 
@@ -30,6 +31,7 @@ const PageLayoutComponent: React.FC = () => {
       collectionName: collectionTitle,
       isPrivate: checkedValue,
       items: []
+      // {itemDescription: "test", itemId: 230, itemTitle: "My Sweet Item"}
     });
     setShowModal(false);
   };
