@@ -3,9 +3,15 @@
     text-align: center;
   }
 
+.description-text {
+      color: white;
+      text-align: left;
+      font-size: 10px;
+  }
+
   .right-item {
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 400px;
     background-color: white;
     padding: 5px;
     margin: 5px;

@@ -83,10 +83,10 @@ const PageLayoutComponent: React.FC = () => {
           <div className="child item">
             <div className="left-side">
               <div className="left-box">
-                <h1 className="box-text">Box 1</h1>
+                <h1 className="box-text">User</h1>
               </div>
               <div className="left-box">
-                <h1 className="box-text">Box 2</h1>
+                <h1 className="box-text">Collections</h1>
               </div>
               <div className="left-box">
                 <img
@@ -113,11 +113,9 @@ const PageLayoutComponent: React.FC = () => {
                 </div>
                 {collections.map((col: CollectionModel, index: number) => {
                   return (
-                    //wrap this CollectionBox in a Link to="/collection/col.collectionId"
-                    // Then go to Routes.tsx
                     <CollectionBox
                       collectionId={col.collectionId}
-                      collectionName={col.collectionName}
+                        collectionName={col.collectionName}
                       isPrivate={col.isPrivate}
                       imageUrl={"http://placecorgi.com/260/180"}
                       key={index}
