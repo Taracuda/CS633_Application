@@ -8,5 +8,6 @@ export interface CollectionPageProps {
 
 export const CollectionPage: React.FC<CollectionPageProps> = ({collection}) => {
     const [collectionItems, setCollectionItems] = useState<CollectionItemModel[]>(collection.items)
-    return <></>
+    return <>
+    <p>This is where items should show</p></>
 }
