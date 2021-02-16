@@ -29,6 +29,7 @@ const PageLayoutComponent: React.FC = () => {
       collectionId: 0,
       collectionName: collectionTitle,
       isPrivate: checkedValue,
+      items: []
     });
     setShowModal(false);
   };
@@ -112,6 +113,8 @@ const PageLayoutComponent: React.FC = () => {
                 </div>
                 {collections.map((col: CollectionModel, index: number) => {
                   return (
+                    //wrap this CollectionBox in a Link to="/collection/col.collectionId"
+                    // Then go to Routes.tsx
                     <CollectionBox
                       collectionId={col.collectionId}
                       collectionName={col.collectionName}
