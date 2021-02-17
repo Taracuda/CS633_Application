@@ -88,27 +88,31 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
       )
     );
 
-    // TODO: Make sure this method works
-    collectionStore.deleteItem(itemId, 0);
+    collectionStore.deleteItem(itemId, currentCollection!.collectionId);
   };
 
   const handleDescriptionChanged = (newDescription: string, itemId: number) => {
-    // TODO: create this method on the collection store -> collectionStore.changeItemDescription(newDescription);
     const itemToUpdate = collectionItems.find(
       (ci: CollectionItemModel) => ci.itemId === itemId
     );
 
-    // The non-null assert (!) is there because .find() can return undefined
-    // TODO: Update the item in local state ->  itemToUpdate!.itemDescription = newDescription;
+    // Update the item in local state ->  itemToUpdate!.itemDescription = newDescription;
+    itemToUpdate!.itemDescription = newDescription;
+
+    // Update this item in the collection store.
+    collectionStore.updateItem(itemToUpdate!, currentCollection!.collectionId);
   };
 
   const handleNameChanged = (newName: string, itemId: number) => {
-    // TODO: create this method on the collection store -> collectionStore.changeItemName(newName);
     const itemToUpdate = collectionItems.find(
       (ci: CollectionItemModel) => ci.itemId === itemId
     );
 
-    // TODO: Update the item in local state -> itemToUpdate!.itemTitle = newName;
+    // Update the item in local state -> itemToUpdate!.itemTitle = newName;
+    itemToUpdate!.itemTitle = newName;
+
+    // Update this item in the collection store.
+    collectionStore.updateItem(itemToUpdate!, currentCollection!.collectionId);
   };
 
   return (

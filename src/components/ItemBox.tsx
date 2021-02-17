@@ -52,7 +52,7 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
                   setDisplayedItemName(e.target.value);
                 }}
               />
-              <button onClick={onDescriptionChanged}>Save</button>
+              <button onClick={onNameChanged}>Save</button>
               <button onClick={() => setIsEditing(false)}>Cancel</button>
             </>
           )}
