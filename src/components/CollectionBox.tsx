@@ -6,13 +6,13 @@ export interface CollectionBoxProps {
   collectionName: string;
   collectionId: number;
   isPrivate: boolean;
-  imageUrl: string;
+  collectionPhoto: string;
   onDeleteHandler: (collectionId: number) => void;
   isPrivateHandler: (newValue: boolean, collectionId: number) => void;
   nameChangedHandler: (newName: string, collectionId: number) => void;
 }
 
-export const CollectionBox: React.FC<CollectionBoxProps> = ({collectionName, collectionId, isPrivate, imageUrl, onDeleteHandler, isPrivateHandler, nameChangedHandler}) => {
+export const CollectionBox: React.FC<CollectionBoxProps> = ({collectionName, collectionId, isPrivate, collectionPhoto, onDeleteHandler, isPrivateHandler, nameChangedHandler}) => {
     const [isEditing, setIsEditing] = useState(false);
     const [displayedCollectionName, setDisplayedCollectionName] = useState(collectionName);
     const deleteCollection = () => {
@@ -48,10 +48,12 @@ export const CollectionBox: React.FC<CollectionBoxProps> = ({collectionName, col
               <h1 className="box-text">{displayedCollectionName}</h1>
             </Link>
             <button onClick={() => setIsEditing(true)}>Edit Name</button>
-            <button onClick={deleteCollection}>Delete Collection</button>
+            <button onClick={deleteCollection}>Delete</button>
             </>
           )}
-        <img className='collection-image' src={imageUrl} alt='doggo' />
+        <div>
+        <img className='collection-image' src={collectionPhoto} alt='Collection Image' width="150" height="150"/>
+        </div>
         <div>
             <span>Private Collection?</span>
             <input type="checkbox" checked={isPrivate} onChange={onPrivateChanged} />

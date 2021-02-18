@@ -5,7 +5,7 @@ export interface ItemBoxProps {
   itemName: string;
   itemDescription: string;
   itemId: number;
-  imageUrl: string;
+  itemPhoto: string;
   onDeleteHandler: (itemId: number) => void;
   descriptionChangedHandler: (newValue: string, itemId: number) => void;
   nameChangedHandler: (newName: string, itemId: number) => void;
@@ -15,12 +15,13 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
   itemName,
   itemDescription,
   itemId,
-  imageUrl,
+  itemPhoto,
   onDeleteHandler,
   descriptionChangedHandler,
   nameChangedHandler,
 }) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [isEditingDesc, setIsEditingDesc] = useState(false);
   const [displayedItemDescription, setDisplayedItemDescription] = useState(
     itemDescription
   );
@@ -31,19 +32,19 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
 
   const onDescriptionChanged = () => {
     descriptionChangedHandler(displayedItemDescription, itemId);
-    setIsEditing(false);
+    setIsEditingDesc(false);
   };
 
   const onNameChanged = () => {
     nameChangedHandler(displayedItemName, itemId);
-    setIsEditing(false);
+    setIsEditingName(false);
   };
 
   return (
     <>
       {/* <div className="wrapping-items"> */}
         <div className="right-item">
-          {isEditing && (
+          {isEditingName && (
             <>
               <input
                 type="text"
@@ -53,18 +54,38 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
                 }}
               />
               <button onClick={onNameChanged}>Save</button>
-              <button onClick={() => setIsEditing(false)}>Cancel</button>
+              <button onClick={() => setIsEditingName(false)}>Cancel</button>
             </>
           )}
-          {!isEditing && (
+          {!isEditingName && (
             <>
               <h1 className="box-text">{displayedItemName}</h1>
-              <button onClick={() => setIsEditing(true)}>Edit Name</button>
-              <button onClick={deleteItem}>Delete Item</button>
+              <button onClick={() => setIsEditingName(true)}>Edit Name</button>
+              <button onClick={() => setIsEditingDesc(true)}>Edit Description</button>
+              <button onClick={deleteItem}>Delete</button>
             </>
           )}
-          <img className="item-image" src={imageUrl} alt="doggo" />
-          <p className="description-text">{displayedItemDescription}</p>
+          <div>
+          <img className="item-image" src={itemPhoto} alt="Item Image" width="150" height="150"/>
+          </div>
+          {!isEditingDesc && (
+            <>
+              <p className="description-text">{displayedItemDescription}</p>
+            </>
+          )}
+          {isEditingDesc && (
+            <>
+              <input
+                type="text"
+                value={displayedItemDescription}
+                onChange={(e) => {
+                  setDisplayedItemDescription(e.target.value);
+                }}
+              />
+              <button onClick={onDescriptionChanged}>Save</button>
+              <button onClick={() => setIsEditingDesc(false)}>Cancel</button>
+            </>
+          )}
         </div>
       {/* </div> */}
     </>

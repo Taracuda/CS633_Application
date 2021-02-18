@@ -17,6 +17,7 @@ const PageLayoutComponent: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [collectionTitle, setCollectionTitle] = useState("");
   const [checkedValue, setCheckedValue] = useState(false);
+  const [collectionPhoto, setCollectionPhoto] = useState("");
   const [collections, setCollections] = useState<CollectionModel[]>(
     store.collections
   );
@@ -30,6 +31,7 @@ const PageLayoutComponent: React.FC = () => {
       collectionId: 0,
       collectionName: collectionTitle,
       isPrivate: checkedValue,
+      collectionPhoto: collectionPhoto,
       items: []
       // {itemDescription: "test", itemId: 230, itemTitle: "My Sweet Item"}
     });
@@ -119,7 +121,7 @@ const PageLayoutComponent: React.FC = () => {
                       collectionId={col.collectionId}
                         collectionName={col.collectionName}
                       isPrivate={col.isPrivate}
-                      imageUrl={"http://placecorgi.com/260/180"}
+                      collectionPhoto={col.collectionPhoto}
                       key={index}
                       onDeleteHandler={onCollectionDelete}
                       isPrivateHandler={handlePrivateChanged}
@@ -155,6 +157,16 @@ const PageLayoutComponent: React.FC = () => {
                 checked={checkedValue}
                 onChange={() => {
                   setCheckedValue(!checkedValue);
+                }}
+              />
+            </div>
+            <div className="inputGroup">
+              <label>Image URL</label>
+              <input
+                type="text"
+                value={collectionPhoto}
+                onChange={(e) => {
+                  setCollectionPhoto(e.target.value);
                 }}
               />
             </div>

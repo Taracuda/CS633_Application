@@ -46,6 +46,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
   const [showModal, setShowModal] = useState(false);
   const [itemTitle, setItemTitle] = useState("");
   const [itemDescription, setItemDescription] = useState("");
+  const [itemPhoto, setItemPhoto] = useState("");
   const [collectionItems, setCollectionItems] = useState<CollectionItemModel[]>(
     []
   );
@@ -67,6 +68,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
       itemId: collectionItems.length + Math.floor(Math.random() * 100),
       itemTitle: itemTitle,
       itemDescription: itemDescription,
+      itemPhoto: itemPhoto,
     };
 
     if (collectionItems.length < 10) {
@@ -74,8 +76,13 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
       setCollectionItems(items);
       setItemTitle("");
       setItemDescription("");
+      setItemPhoto("");
       setShowModal(false);
     } else {
+      setItemTitle("");
+      setItemDescription("");
+      setItemPhoto("");
+      setShowModal(false);
       alert("A collection is allowed 10 or less items.");
     }
   };
@@ -144,6 +151,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                   onClick={() => {
                     setItemTitle("");
                     setItemDescription("");
+                    setItemPhoto("");
                     setShowModal(true);
                   }}
                 >
@@ -160,7 +168,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                         itemId={col.itemId}
                         itemName={col.itemTitle}
                         itemDescription={col.itemDescription}
-                        imageUrl={"http://placecorgi.com/260/180"}
+                        itemPhoto={col.itemPhoto}
                         key={index}
                         onDeleteHandler={onItemDelete}
                         descriptionChangedHandler={handleDescriptionChanged}
@@ -195,6 +203,16 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                 value={itemDescription}
                 onChange={(e) => {
                   setItemDescription(e.target.value);
+                }}
+              />
+            </div>
+            <div className="inputGroup">
+              <label>Image URL</label>
+              <input
+                type="text"
+                value={itemPhoto}
+                onChange={(e) => {
+                  setItemPhoto(e.target.value);
                 }}
               />
             </div>
