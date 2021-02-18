@@ -32,7 +32,6 @@ const PageLayoutComponent: React.FC = () => {
       isPrivate: checkedValue,
       collectionPhoto: collectionPhoto,
       items: []
-      // {itemDescription: "test", itemId: 230, itemTitle: "My Sweet Item"}
     });
     setShowModal(false);
   };
