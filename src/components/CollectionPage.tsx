@@ -56,6 +56,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
       setCurrentCollection(collectionFromStore);
       setCollectionItems(collectionFromStore.items);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onFormSubmit = () => {
