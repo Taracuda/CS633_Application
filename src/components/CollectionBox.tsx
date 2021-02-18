@@ -52,7 +52,7 @@ export const CollectionBox: React.FC<CollectionBoxProps> = ({collectionName, col
             </>
           )}
         <div>
-        <img className='collection-image' src={collectionPhoto} alt='Collection Image' width="150" height="150"/>
+        <img className='collection-image' src={collectionPhoto} alt='Collection' width="150" height="150"/>
         </div>
         <div>
             <span>Private Collection?</span>

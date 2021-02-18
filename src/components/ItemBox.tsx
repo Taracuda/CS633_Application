@@ -66,7 +66,7 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
             </>
           )}
           <div>
-          <img className="item-image" src={itemPhoto} alt="Item Image" width="150" height="150"/>
+          <img className="item-image" src={itemPhoto} alt="Item" width="150" height="150"/>
           </div>
           {!isEditingDesc && (
             <>

@@ -1,19 +1,15 @@
 import React, {
-  FormEvent,
-  FormEventHandler,
   useContext,
   useEffect,
   useState,
 } from "react";
 import CollectRImage from "../images/CollectR.jpg";
-import ItemStore from "../Database/ItemStore";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
 import { CollectionModel } from "../domain/CollectionModel";
 import { ItemBox } from "./ItemBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import CollectionStore from "../Database/CollectionStore";
-import { Routes } from "./routes/Routes";
 import { RouteComponentProps } from "react-router-dom";
 
 const element = <FontAwesomeIcon icon={faPlus} className="add-icon" />;
