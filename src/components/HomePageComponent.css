@@ -1,3 +1,7 @@
+a:visited{
+  color:white;
+	background-color:#768d87;
+}
 .homepage-button {
 	box-shadow:inset 0px 1px 3px 0px #91b8b3;
 	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
@@ -12,6 +16,8 @@
 	font-weight:bold;
 	padding:11px 23px;
 	text-decoration:none;
+  margin-left: 5px;
+  margin-right: 5px;
 	text-shadow:0px -1px 0px #2b665e;
     margin-top: 10px;
 }
@@ -29,4 +35,3 @@
 .CollectR-logo {
     margin-top: 100px !important;
 }
-   

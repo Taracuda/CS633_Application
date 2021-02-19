@@ -10,7 +10,7 @@
     margin-bottom: 50px;
     margin-right: 110px;
   }
-  
+
 
   * {
     padding: 0;
@@ -18,7 +18,7 @@
     margin: 0;
     background-color: #1f3864;
   }
-  
+
   .main-container {
     width: 100%;
     display: flex;
@@ -26,39 +26,39 @@
     margin: 0 auto;
     background-color: #2f5496;
   }
-  
+
   .child {
     margin: auto;
     height: 300px;
     width: 300px;
     background-color: #b3c6e7;
   }
-  
+
   .container {
     display: flex;
     height: 100vh;
     width: 85%;
   }
-  
+
   .right-side {
     display: flex;
     flex-direction: column;
     height: 100%;
-  
+
   }
-  
+
   .right-row {
     display: flex;
     flex-direction: row;
   }
-  
+
   .item {
     height: 80%;
     margin-right: 20px;
     margin-left: 40px;/* A fixed width as the default */
   }
-  
- 
+
+
 
   .name-text {
     font-size:15px;
@@ -68,7 +68,7 @@
     right: 300px;
     margin-bottom: 100px;
   }
-  
+
   .top-of-collection-text {
     font-size: 30px;
     text-align: center;
@@ -82,35 +82,35 @@
     justify-content: center;
     display: flex;
   }
-  
+
   .wrapper {
     height: 100vh !important;
     width: 100%;
     margin: 0 auto;
   }
-  
+
   .left-side {
     display: flex;
     flex-direction: column;
   }
-  
+
   .item-center {
     flex-grow: 1;
     height: 80%;
     margin-right: 40px;
-  
+
   }
-  
+
   .item + .item {
     margin-left: 2%;
   }
 
   .modal {
-   width: 600px;
-   height: 600px;
-   position: absolute;
-   bottom: 300px;
-   left: 700px;
+   width: 400px;
+   height: 400px;
+   position: relative;
+   bottom: 600px;
+   left: 100px;
    background-color: white;
    align-items: center;
   }
@@ -118,8 +118,10 @@
   form {
     width: 100%;
     height: 100%;
+    background-color: #1f3864;
     display: flex;
     flex-direction: column;
+    border-style: inset;
   }
 
   input {
@@ -137,17 +139,23 @@
     width: 200px;
     height: 60px;
     margin: 0 auto;
-    background-color: white;
   }
- 
+
+  button {
+    color: white;
+    margin-right: 10px;
+  }
+
   .add-icon {
-    color: red;
+    color: purple;
     background-color: white;
     font-size: 72px;
     margin: 30px auto;
-    margin-left: 160px;
+    margin-left: 110px;
   }
 
   .box-text {
     font-size: 30px;
+    background-color: #b3c6e7;
+    color:#1f3864 !important;
   }
