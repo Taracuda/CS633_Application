@@ -7,7 +7,6 @@ import PageLayoutComponent from './PageLayoutComponent';
 export const Dashboard: React.FC = () => {
     return (
     <>
-    <button className="sign-out-button" onClick={() => {Auth.signOut()}}><Link to={"/home"}>Sign Out</Link></button>
     <PageLayoutComponent />
     </>)
 }

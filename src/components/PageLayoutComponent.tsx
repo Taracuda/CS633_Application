@@ -7,6 +7,7 @@ import { CollectionModel } from "../domain/CollectionModel";
 import { CollectionBox } from "./CollectionBox";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
 const element = <FontAwesomeIcon icon={faPlus} className="add-icon" />
 
@@ -115,7 +116,8 @@ const PageLayoutComponent: React.FC = () => {
                 </div>
                 {collections.map((col: CollectionModel, index: number) => {
                   return (
-                    <CollectionBox
+            <Link to={`/collection/${col.collectionId}`}>
+            <CollectionBox
                       collectionId={col.collectionId}
                         collectionName={col.collectionName}
                       isPrivate={col.isPrivate}
@@ -125,6 +127,7 @@ const PageLayoutComponent: React.FC = () => {
                       isPrivateHandler={handlePrivateChanged}
                       nameChangedHandler={handleNameChanged}
                     />
+                    </Link>
                   );
                 })}
               </div>

@@ -11,8 +11,7 @@ export const HomeComponent: React.FC = () => {
         <button className="homepage-button">
           <Link to={"/login"}>Login</Link>
         </button>
-        {/* //Browse button does not do anything upon click yet */}
-        <button className="homepage-button">Browse</button>
+        <Link to={"/browse"} className="homepage-button">Browse</Link>
       </div>
     </>
   );
