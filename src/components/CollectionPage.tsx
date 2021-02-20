@@ -66,6 +66,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
       itemTitle: itemTitle,
       itemDescription: itemDescription,
       itemPhoto: itemPhoto,
+      favorited: false
     };
 
     if (collectionItems.length < 10) {
@@ -94,6 +95,16 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
 
     collectionStore.deleteItem(itemId, currentCollection!.collectionId);
   };
+
+  const handleFavorites = (itemId: number) => {
+    const itemToUpdate = collectionItems.find(
+      (ci: CollectionItemModel) => ci.itemId === itemId
+    );
+
+
+    collectionStore.setFavorite(itemToUpdate!);
+  }
+
 
   const handleDescriptionChanged = (newDescription: string, itemId: number) => {
     const itemToUpdate = collectionItems.find(
@@ -170,6 +181,8 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                         onDeleteHandler={onItemDelete}
                         descriptionChangedHandler={handleDescriptionChanged}
                         nameChangedHandler={handleNameChanged}
+                        onFavoriteHandler={handleFavorites}
+                        favorited={col.favorited}
                       />
                     );
                   }

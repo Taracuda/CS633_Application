@@ -44,48 +44,56 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Draco with a spider on his face",
           itemId: 10,
           itemTitle: "Draco Malfoy",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/wGCYka8.png",
           itemDescription: "Dumbledore dressed for a holiday party",
           itemId: 11,
           itemTitle: "Dumbledore",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/A0TqFqF.png",
           itemDescription: "Fawkes the phoenix",
           itemId: 12,
           itemTitle: "Fawkes",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/Cih1wBD.png",
           itemDescription: "Harry Potter with his wand",
           itemId: 13,
           itemTitle: "Harry Potter",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/dbsJkHH.png",
           itemDescription: "Giant Hedwig",
           itemId: 14,
           itemTitle: "Hedwig",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/QGE4TgX.png",
           itemDescription: "Ron and a bucket of slugs",
           itemId: 15,
           itemTitle: "Ron Weasley",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/hv7rZAO.png",
           itemDescription: "Hermione dressed for the Yule Ball",
           itemId: 16,
           itemTitle: "Hermione Granger",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/DGuI8fR.png",
           itemDescription: "Luna dressed for class",
           itemId: 17,
           itemTitle: "Luna Lovegood",
+          favorited: false
         },
       ],
     });
@@ -101,18 +109,21 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Sleeping Beauty, 1959 on Linen",
           itemId: 20,
           itemTitle: "Sleeping Beauty",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/UAnmUh2.png",
           itemDescription: "It's a Wonderful Life, 1946",
           itemId: 21,
           itemTitle: "It's a Wonderful Life",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/nJFgMOj.png",
           itemDescription: "Help! The Beatles, 1965",
           itemId: 22,
           itemTitle: "Help!",
+          favorited: false
         },
       ],
     });
@@ -128,60 +139,70 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Cal Ripken card",
           itemId: 30,
           itemTitle: "Cal Ripken",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/mfOiEaC.png",
           itemDescription: "Dwight Gooden card",
           itemId: 31,
           itemTitle: "Dwight Gooden",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/csPOXqX.png",
           itemDescription: "Bo Jackson card",
           itemId: 32,
           itemTitle: "Bo Jackson",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/ikdovtw.png",
           itemDescription: "Chipper Jones card",
           itemId: 33,
           itemTitle: "Chipper Jones",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/RBfaQc2.png",
           itemDescription: "Frank Thomas card",
           itemId: 34,
           itemTitle: "Frank Thomas",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/WsNLNmn.png",
           itemDescription: "Harold Baines card",
           itemId: 35,
           itemTitle: "Harold Baines",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/ic920LT.png",
           itemDescription: "Jose Canseco card",
           itemId: 36,
           itemTitle: "Jose Canseco",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/2UfRCmN.png",
           itemDescription: "Ken Griffey Jr. card",
           itemId: 37,
           itemTitle: "Ken Griffey Jr.",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/mZpDPmE.png",
           itemDescription: "Ozzie Smith card",
           itemId: 38,
           itemTitle: "Ozzie Smith",
+          favorited: false
         },
         {
           itemPhoto: "https://i.imgur.com/wAHxg9K.png",
           itemDescription: "Pete Rose card",
           itemId: 39,
           itemTitle: "Pete Rose",
+          favorited: false
         },
       ],
     });
@@ -199,6 +220,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "William Shatner's autograph",
           itemId: 40,
           itemTitle: "William Shatner",
+          favorited: false
         },
         {
           itemPhoto:
@@ -206,6 +228,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Game of Thrones cast autograph",
           itemId: 41,
           itemTitle: "Game of Thrones cast",
+          favorited: false
         },
         {
           itemPhoto:
@@ -213,6 +236,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Dan Aykroyd's autograph",
           itemId: 42,
           itemTitle: "Dan Aykroyd, Ghostbusters",
+          favorited: false
         },
         {
           itemPhoto:
@@ -220,6 +244,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Supernatural cast autograph",
           itemId: 43,
           itemTitle: "Supernatural cast",
+          favorited: false
         },
       ],
     });
@@ -237,6 +262,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Rainbow crab",
           itemId: 50,
           itemTitle: "Crab",
+          favorited: false
         },
         {
           itemPhoto:
@@ -244,6 +270,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Otter with seaweed",
           itemId: 51,
           itemTitle: "Otter",
+          favorited: false
         },
         {
           itemPhoto:
@@ -251,6 +278,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Peace",
           itemId: 52,
           itemTitle: "Peace Bear",
+          favorited: false
         },
         {
           itemPhoto:
@@ -258,6 +286,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Pinky flamingo",
           itemId: 53,
           itemTitle: "Flamingo",
+          favorited: false
         },
         {
           itemPhoto:
@@ -265,6 +294,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Princess Diana Bear",
           itemId: 54,
           itemTitle: "Diana Bear",
+          favorited: false
         },
         {
           itemPhoto:
@@ -272,6 +302,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Valentino Bear",
           itemId: 55,
           itemTitle: "Valentino",
+          favorited: false
         },
       ],
     });
@@ -289,6 +320,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Queen II",
           itemId: 60,
           itemTitle: "Queen",
+          favorited: false
         },
         {
           itemPhoto:
@@ -296,6 +328,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Dark Side of the Moon",
           itemId: 61,
           itemTitle: "Pink Floyd",
+          favorited: false
         },
         {
           itemPhoto:
@@ -303,6 +336,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Destroyer",
           itemId: 62,
           itemTitle: "Kiss",
+          favorited: false
         },
         {
           itemPhoto:
@@ -310,6 +344,7 @@ export const BrowsePageComponent: React.FC = () => {
           itemDescription: "Rubber Soul",
           itemId: 63,
           itemTitle: "The Beatles",
+          favorited: false
         },
       ],
     });

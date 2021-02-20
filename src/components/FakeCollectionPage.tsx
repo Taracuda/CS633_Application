@@ -35,6 +35,15 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
     }
   });
 
+  const handleFavorites = (itemId: number) => {
+    const itemToUpdate = collectionItems.find(
+      (ci: CollectionItemModel) => ci.itemId === itemId
+    );
+
+
+    fakeStore.setFavorite(itemToUpdate!);
+  }
+
   return (
     <>
       <div className="wrapper">
@@ -67,10 +76,12 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
                         itemName={col.itemTitle}
                         itemDescription={col.itemDescription}
                         itemPhoto={col.itemPhoto}
+                        favorited={col.favorited}
                         key={index}
                         onDeleteHandler={() => {}}
                         descriptionChangedHandler={() => {}}
                         nameChangedHandler={() => {}}
+                        onFavoriteHandler={handleFavorites}
                       />
                     );
                   }

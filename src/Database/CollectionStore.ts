@@ -35,6 +35,18 @@ class CollectionStore {
         this.deleteItem(updatedItem.itemId, collectionId);
         collectionToUpdate!.items.push(updatedItem);
     }
+
+    public setFavorite = (favoritedItem: CollectionItemModel) => {
+        const favorites: CollectionItemModel[] = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+        favorites.push(favoritedItem);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+
+    public getFavorites = (): CollectionItemModel[] => {
+        const favorites: CollectionItemModel[] = JSON.parse(localStorage.getItem("favorites") || "[]");
+        return favorites;
+    }
 }
 
 
