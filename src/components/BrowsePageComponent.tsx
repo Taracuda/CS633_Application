@@ -340,7 +340,6 @@ export const BrowsePageComponent: React.FC = () => {
   }, [tempCollections]);
 
   useEffect(() => {
-    setCollections(tempCollections);
     fakeStore.setCollections(tempCollections);
   }, [createData, tempCollections, fakeStore]);
 
@@ -348,6 +347,10 @@ export const BrowsePageComponent: React.FC = () => {
     <>
       <div className="wrapper">
         {createData()}
+    
+        {
+          setCollections(tempCollections)
+        }
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
