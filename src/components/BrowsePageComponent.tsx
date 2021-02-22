@@ -12,7 +12,7 @@ import FakeCollectionStore from "./FakeCollectionStore";
 export const BrowsePageComponent: React.FC = () => {
   const store = useContext(CollectionStore);
 
-  const tempCollections: CollectionModel[] = [];
+  
 
   const [collections, setCollections] = useState<CollectionModel[]>(() => 
     store.collections
@@ -21,6 +21,7 @@ export const BrowsePageComponent: React.FC = () => {
   const fakeStore = useContext(FakeCollectionStore);
 
   const createData = () => {
+    const tempCollections: CollectionModel[] = [];
     tempCollections.push({
       collectionId: 10,
       collectionName: "Harry Potter Funko Pops",
@@ -336,12 +337,12 @@ export const BrowsePageComponent: React.FC = () => {
         },
       ],
     });
+    setCollections(tempCollections);
+    fakeStore.setCollections(tempCollections);
   };
 
   const onInit = () => {
     createData();
-    setCollections(tempCollections);
-    fakeStore.setCollections(tempCollections);
   }
 
   useEffect(() => {
