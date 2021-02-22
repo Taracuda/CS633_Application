@@ -4,8 +4,11 @@ import IAuthState from "../../domain/IAuthState";
 import { CollectionPage } from "../CollectionPage";
 import { Dashboard } from "../Dashboard";
 import { HomeComponent } from "../HomePageComponent";
+import { BrowsePageComponent } from "../BrowsePageComponent";
 import { LoginComponent } from "../LoginComponent";
 import { AuthenticatedRoute } from "./AuthenticatedRoute";
+import { FakeCollectionPage } from "../FakeCollectionPage";
+import { FavoritesPageComponent } from "../FavoritesPageComponent";
 export const Routes: React.FC = () => {
   const [authState, setAuthState] = useState<IAuthState>({
     authState: "",
@@ -33,6 +36,9 @@ export const Routes: React.FC = () => {
             )}
           />
           <Route path="/home" component={HomeComponent} />
+          <Route path="/browse" component={BrowsePageComponent} />
+          <Route path="/browseItems/:id" component={FakeCollectionPage} />
+          <Route path="/favorites" component={FavoritesPageComponent} />
 
           <AuthenticatedRoute
             authState={authState.authState}

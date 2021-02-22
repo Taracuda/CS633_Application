@@ -3,4 +3,5 @@ export interface CollectionItemModel {
     itemTitle: string;
     itemDescription: string;
     itemPhoto: string;
+    favorited: boolean;
 }

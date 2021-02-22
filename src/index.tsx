@@ -17,6 +17,7 @@ const config = {
 };
 Auth.configure(config);
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

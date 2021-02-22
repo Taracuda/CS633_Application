@@ -1,8 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
 import { CollectionModel } from "../domain/CollectionModel";
@@ -46,6 +42,9 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
   const [collectionItems, setCollectionItems] = useState<CollectionItemModel[]>(
     []
   );
+  const [filteredItems, setFilteredItems] = useState<CollectionItemModel[]>([]);
+  const [showFilteredItems, setShowFilteredItems] = useState(false);
+  const [filterTerm, setFilterTerm] = useState("");
 
   useEffect(() => {
     const id = match.params.id;
@@ -66,7 +65,9 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
       itemTitle: itemTitle,
       itemDescription: itemDescription,
       itemPhoto: itemPhoto,
+      favorited: false,
     };
+
 
     if (collectionItems.length < 10) {
       items.push(newCollectionItem);
@@ -95,6 +96,14 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
     collectionStore.deleteItem(itemId, currentCollection!.collectionId);
   };
 
+  const handleFavorites = (itemId: number) => {
+    const itemToUpdate = collectionItems.find(
+      (ci: CollectionItemModel) => ci.itemId === itemId
+    );
+
+    collectionStore.setFavorite(itemToUpdate!);
+  };
+
   const handleDescriptionChanged = (newDescription: string, itemId: number) => {
     const itemToUpdate = collectionItems.find(
       (ci: CollectionItemModel) => ci.itemId === itemId
@@ -117,6 +126,15 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
 
     // Update this item in the collection store.
     collectionStore.updateItem(itemToUpdate!, currentCollection!.collectionId);
+  };
+
+  const filterItems = () => {
+    const items = collectionItems.filter((i: CollectionItemModel) => {
+      return i.itemTitle.toLowerCase().includes(filterTerm.toLowerCase());
+    });
+
+    setFilteredItems(items);
+    setShowFilteredItems(true);
   };
 
   return (
@@ -142,7 +160,62 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
           </div>
           <div className="child item-center">
             <div className="right-side">
-              <div className="right-row">
+              <input
+                type="text"
+                value={filterTerm}
+                onChange={(e) => setFilterTerm(e.target.value)}
+              />
+              <button onClick={filterItems}>Filter</button>
+              {showFilteredItems && filteredItems.length > 0 && (
+                <div className="right-row">
+                  <h1>Filtered Items</h1>
+                  {filteredItems.map(
+                    (col: CollectionItemModel, index: number) => {
+                      return (
+                        <ItemBox
+                          itemId={col.itemId}
+                          itemName={col.itemTitle}
+                          itemDescription={col.itemDescription}
+                          itemPhoto={col.itemPhoto}
+                          favorited={col.favorited}
+                          key={index}
+                          onDeleteHandler={() => {}}
+                          descriptionChangedHandler={() => {}}
+                          nameChangedHandler={() => {}}
+                          onFavoriteHandler={handleFavorites}
+                        />
+                      );
+                    }
+                  )}
+                  <button
+                    onClick={() => {
+                      setShowFilteredItems(false);
+                      setFilteredItems([]);
+                      setFilterTerm("");
+                    }}
+                  >
+                    Close
+                  </button>
+                </div>
+              )}
+
+              {showFilteredItems && filteredItems.length === 0 && (
+                <div className="right-row">
+                  <h1>No Items Found</h1>
+                  <button
+                    onClick={() => {
+                      setShowFilteredItems(false);
+                      setFilteredItems([]);
+                      setFilterTerm("");
+                    }}
+                  >
+                    Close
+                  </button>
+                </div>
+              )}
+
+              {!showFilteredItems && (
+                <div className="right-row">
                 <div
                   className="right-item"
                   onClick={() => {
@@ -170,16 +243,21 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                         onDeleteHandler={onItemDelete}
                         descriptionChangedHandler={handleDescriptionChanged}
                         nameChangedHandler={handleNameChanged}
+                        onFavoriteHandler={handleFavorites}
+                        favorited={col.favorited}
                       />
                     );
                   }
                 )}
               </div>
-              </div>
-              <div className="right-row"></div>
+              )}
+
+              
             </div>
+            <div className="right-row"></div>
           </div>
         </div>
+      </div>
       {showModal && (
         <div className="modal">
           <form>

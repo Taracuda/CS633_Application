@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./CollectionBox.css";
 
 export interface CollectionBoxProps {
@@ -44,9 +43,8 @@ export const CollectionBox: React.FC<CollectionBoxProps> = ({collectionName, col
           }
           {!isEditing && (
               <>
-            <Link to={`/collection/${collectionId}`}>
               <h1 className="box-text">{displayedCollectionName}</h1>
-            </Link>
+            
             <button onClick={() => setIsEditing(true)}>Edit Name</button>
             <button onClick={deleteCollection}>Delete</button>
             </>
