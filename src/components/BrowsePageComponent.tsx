@@ -1,9 +1,8 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
 import { useState } from "react";
-import { useEffect } from "react";
 import "./PageLayoutComponent.css";
 import { CollectionBox } from "./CollectionBox";
 import CollectRImage from "../images/CollectR.jpg";
@@ -21,7 +20,7 @@ export const BrowsePageComponent: React.FC = () => {
 
   const fakeStore = useContext(FakeCollectionStore);
 
-  const createData = useCallback(() => {
+  const createData = () => {
     tempCollections.push({
       collectionId: 10,
       collectionName: "Harry Potter Funko Pops",
@@ -337,11 +336,7 @@ export const BrowsePageComponent: React.FC = () => {
         },
       ],
     });
-  }, [tempCollections]);
-
-  useEffect(() => {
-    fakeStore.setCollections(tempCollections);
-  }, [createData, tempCollections, fakeStore]);
+  };
 
   return (
     <>
@@ -350,6 +345,10 @@ export const BrowsePageComponent: React.FC = () => {
     
         {
           setCollections(tempCollections)
+        }
+
+        {
+          fakeStore.setCollections(tempCollections)
         }
         <div className="main-container container">
           <div className="child item">
