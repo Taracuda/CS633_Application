@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
@@ -337,7 +337,7 @@ export const BrowsePageComponent: React.FC = () => {
         },
       ],
     });
-  }, []);
+  }, [tempCollections]);
 
   useEffect(() => {
     setCollections(tempCollections);
