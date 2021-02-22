@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
@@ -338,11 +338,11 @@ export const BrowsePageComponent: React.FC = () => {
     });
   };
 
-  const onInit = useCallback(() => {
+  const onInit = () => {
     createData();
     setCollections(tempCollections);
     fakeStore.setCollections(tempCollections);
-  }, [tempCollections, createData, fakeStore])
+  }
 
   useEffect(() => {
     onInit();
