@@ -12,8 +12,6 @@ import CollectRImage from "../images/CollectR.jpg";
 import { Link } from "react-router-dom";
 import FakeCollectionStore from "./FakeCollectionStore";
 
-const favorite = <FontAwesomeIcon icon={faHeart} className="add-icon" />;
-
 export const BrowsePageComponent: React.FC = () => {
   const store = useContext(CollectionStore);
 
@@ -29,7 +27,7 @@ export const BrowsePageComponent: React.FC = () => {
     createData();
     setCollections(tempCollections);
     fakeStore.setCollections(tempCollections);
-  }, []);
+  });
 
   const createData = () => {
     tempCollections.push({

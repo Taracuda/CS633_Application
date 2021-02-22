@@ -2,13 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
 import { ItemBox } from "./ItemBox";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { RouteComponentProps } from "react-router-dom";
 import FakeCollectionStore from "./FakeCollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
-
-const element = <FontAwesomeIcon icon={faPlus} className="add-icon" />;
 
 interface MatchParams {
   id: string;
@@ -36,7 +32,7 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
     if (collectionFromStore) {
       setCollectionItems(collectionFromStore.items);
     }
-  });
+  }, [match.params.id, fakeStore.collections]);
 
   const handleFavorites = (itemId: number) => {
     const itemToUpdate = collectionItems.find(

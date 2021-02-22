@@ -22,7 +22,6 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
   itemDescription,
   itemId,
   itemPhoto,
-  favorited,
   onDeleteHandler,
   descriptionChangedHandler,
   nameChangedHandler,
