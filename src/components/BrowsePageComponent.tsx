@@ -342,7 +342,7 @@ export const BrowsePageComponent: React.FC = () => {
     createData();
     setCollections(tempCollections);
     fakeStore.setCollections(tempCollections);
-  }, [tempCollections])
+  }, [tempCollections, createData, fakeStore])
 
   useEffect(() => {
     onInit();
