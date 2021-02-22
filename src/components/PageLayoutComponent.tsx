@@ -27,6 +27,7 @@ const PageLayoutComponent: React.FC = () => {
   }, [store.collections]);
 
   const onFormSubmit = () => {
+  
     store.createCollection({
       collectionId: 0,
       collectionName: collectionTitle,
@@ -34,6 +35,7 @@ const PageLayoutComponent: React.FC = () => {
       collectionPhoto: collectionPhoto,
       items: []
     });
+  
     setShowModal(false);
   };
 
