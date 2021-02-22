@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
@@ -338,18 +338,19 @@ export const BrowsePageComponent: React.FC = () => {
     });
   };
 
+  const onInit = useCallback(() => {
+    createData();
+    setCollections(tempCollections);
+    fakeStore.setCollections(tempCollections);
+  }, [tempCollections])
+
+  useEffect(() => {
+    onInit();
+  }, []);
+
   return (
     <>
       <div className="wrapper">
-        {createData()}
-    
-        {
-          setCollections(tempCollections)
-        }
-
-        {
-          fakeStore.setCollections(tempCollections)
-        }
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
