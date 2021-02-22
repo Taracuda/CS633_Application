@@ -346,7 +346,7 @@ export const BrowsePageComponent: React.FC = () => {
 
   useEffect(() => {
     onInit();
-  }, []);
+  }, [onInit]);
 
   return (
     <>
