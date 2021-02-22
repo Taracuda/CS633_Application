@@ -1,6 +1,4 @@
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
@@ -22,12 +20,6 @@ export const BrowsePageComponent: React.FC = () => {
   );
 
   const fakeStore = useContext(FakeCollectionStore);
-
-  useEffect(() => {
-    createData();
-    setCollections(tempCollections);
-    fakeStore.setCollections(tempCollections);
-  });
 
   const createData = () => {
     tempCollections.push({
@@ -346,6 +338,12 @@ export const BrowsePageComponent: React.FC = () => {
       ],
     });
   };
+
+  useEffect(() => {
+    createData();
+    setCollections(tempCollections);
+    fakeStore.setCollections(tempCollections);
+  }, [createData, tempCollections, fakeStore]);
 
   return (
     <>

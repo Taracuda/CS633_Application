@@ -12,7 +12,7 @@ export const FavoritesPageComponent: React.FC = () => {
 
   useEffect(() => {
    setFavoritedItems(store.getFavorites());
-  });
+  }, [store]);
 
   
   return (

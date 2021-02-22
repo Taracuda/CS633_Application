@@ -51,7 +51,9 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
   const onItemFavorited = () => {
     setIsFavorited(true);
     onFavoriteHandler(itemId);
+    if (isFavorited) {
     alert("Item added to your favorites");
+    }
   };
 
   return (
