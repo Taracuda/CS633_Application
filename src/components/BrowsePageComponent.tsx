@@ -10,7 +10,6 @@ import "./PageLayoutComponent.css";
 import { CollectionBox } from "./CollectionBox";
 import CollectRImage from "../images/CollectR.jpg";
 import { Link } from "react-router-dom";
-import _fakeCollectionStore from "./FakeCollectionStore";
 import FakeCollectionStore from "./FakeCollectionStore";
 
 const favorite = <FontAwesomeIcon icon={faHeart} className="add-icon" />;
