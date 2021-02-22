@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
@@ -15,13 +15,13 @@ export const BrowsePageComponent: React.FC = () => {
 
   const tempCollections: CollectionModel[] = [];
 
-  const [collections, setCollections] = useState<CollectionModel[]>(
+  const [collections, setCollections] = useState<CollectionModel[]>(() => 
     store.collections
   );
 
   const fakeStore = useContext(FakeCollectionStore);
 
-  const createData = () => {
+  const createData = useCallback(() => {
     tempCollections.push({
       collectionId: 10,
       collectionName: "Harry Potter Funko Pops",
@@ -337,10 +337,9 @@ export const BrowsePageComponent: React.FC = () => {
         },
       ],
     });
-  };
+  }, []);
 
   useEffect(() => {
-    createData();
     setCollections(tempCollections);
     fakeStore.setCollections(tempCollections);
   }, [createData, tempCollections, fakeStore]);
@@ -348,6 +347,7 @@ export const BrowsePageComponent: React.FC = () => {
   return (
     <>
       <div className="wrapper">
+        {createData()}
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
