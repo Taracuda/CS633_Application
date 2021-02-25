@@ -9,6 +9,7 @@ import { LoginComponent } from "../LoginComponent";
 import { AuthenticatedRoute } from "./AuthenticatedRoute";
 import { FakeCollectionPage } from "../FakeCollectionPage";
 import { FavoritesPageComponent } from "../FavoritesPageComponent";
+import { NavbarComponent } from "../NavbarComponent";
 export const Routes: React.FC = () => {
   const [authState, setAuthState] = useState<IAuthState>({
     authState: "",

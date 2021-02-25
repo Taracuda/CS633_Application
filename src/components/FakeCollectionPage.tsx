@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
-import { ItemBox } from "./ItemBox";
+import { FakeItemBox } from "./FakeItemBox";
 import { RouteComponentProps } from "react-router-dom";
 import FakeCollectionStore from "./FakeCollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
-import { NavbarComponent } from './NavbarComponent';
 
 interface MatchParams {
   id: string;
@@ -58,7 +57,6 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
-            <NavbarComponent/>
               <div className="left-box">
               </div>
               <div className="left-box">
@@ -90,17 +88,12 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
                   {filteredItems.map(
                     (col: CollectionItemModel, index: number) => {
                       return (
-                        <ItemBox
+                        <FakeItemBox
                           itemId={col.itemId}
                           itemName={col.itemTitle}
                           itemDescription={col.itemDescription}
                           itemPhoto={col.itemPhoto}
-                          favorited={col.favorited}
                           key={index}
-                          onDeleteHandler={() => {}}
-                          descriptionChangedHandler={() => {}}
-                          nameChangedHandler={() => {}}
-                          onFavoriteHandler={handleFavorites}
                         />
                       );
                     }
@@ -118,17 +111,11 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
                   {collectionItems.map(
                     (col: CollectionItemModel, index: number) => {
                       return (
-                        <ItemBox
+                        <FakeItemBox
                           itemId={col.itemId}
                           itemName={col.itemTitle}
                           itemDescription={col.itemDescription}
                           itemPhoto={col.itemPhoto}
-                          favorited={col.favorited}
-                          key={index}
-                          onDeleteHandler={() => {}}
-                          descriptionChangedHandler={() => {}}
-                          nameChangedHandler={() => {}}
-                          onFavoriteHandler={handleFavorites}
                         />
                       );
                     }

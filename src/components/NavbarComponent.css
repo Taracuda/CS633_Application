@@ -1,13 +1,7 @@
-.navbar-words {
+.navbar {
     width: 100% !important;
     font-size: 30px !important;
     font-family:Arial;
     font-weight:bold;
-    background-color:#b3c6e7;
-    color: red;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color:#1f3864;
     background-color:#b3c6e7;
 }

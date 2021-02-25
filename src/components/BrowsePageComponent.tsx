@@ -349,7 +349,7 @@ export const BrowsePageComponent: React.FC = () => {
 
   useEffect(() => {
     onInit();
-  }, [onInit]);
+  }, []);
 
   return (
     <>
@@ -357,7 +357,6 @@ export const BrowsePageComponent: React.FC = () => {
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
-            <NavbarComponent/>
               <div className="left-box">
               </div>
               <div className="left-box">
@@ -379,14 +378,14 @@ export const BrowsePageComponent: React.FC = () => {
                 {collections.map((col: CollectionModel, index: number) => {
 
                   return (
-            <Link to={`/browseItems/${col.collectionId}`}>
-            <FakeCollectionBox
-                      collectionId={col.collectionId}
-                      collectionName={col.collectionName}
-                      isPrivate={col.isPrivate}
-                      collectionPhoto={col.collectionPhoto}
-                      key={index}
-                    />
+                <Link to={`/browseItems/${col.collectionId}`}>
+                  <FakeCollectionBox
+                            collectionId={col.collectionId}
+                            collectionName={col.collectionName}
+                            isPrivate={col.isPrivate}
+                            collectionPhoto={col.collectionPhoto}
+                            key={index}
+                          />
                     </Link>
                   );
                 })}
