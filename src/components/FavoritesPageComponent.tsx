@@ -1,8 +1,11 @@
+import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
 import CollectRImage from "../images/CollectR.jpg";
 import { ItemBox } from "./ItemBox";
+import { Link } from "react-router-dom";
+import { NavbarComponent } from './NavbarComponent';
 
 export const FavoritesPageComponent: React.FC = () => {
   const store = useContext(CollectionStore);
@@ -14,17 +17,17 @@ export const FavoritesPageComponent: React.FC = () => {
    setFavoritedItems(store.getFavorites());
   }, [store]);
 
-  
+
   return (
+    <>
     <div className="wrapper">
       <div className="main-container container">
         <div className="child item">
           <div className="left-side">
+          <NavbarComponent/>
             <div className="left-box">
-              <h1 className="box-text">User</h1>
             </div>
             <div className="left-box">
-              <h1 className="box-text">Collection Name</h1>
             </div>
             <div className="left-box">
               <img
@@ -62,5 +65,6 @@ export const FavoritesPageComponent: React.FC = () => {
         </div>
       </div>
     </div>
+  </>
   );
 };

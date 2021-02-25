@@ -1,3 +1,4 @@
+import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
@@ -7,6 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import CollectionStore from "../Database/CollectionStore";
 import { RouteComponentProps } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { NavbarComponent } from './NavbarComponent';
+import "./CollectionPage.css"
 
 const element = <FontAwesomeIcon icon={faPlus} className="add-icon" />;
 
@@ -143,11 +147,10 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
+            <NavbarComponent/>
               <div className="left-box">
-                <h1 className="box-text">User</h1>
               </div>
               <div className="left-box">
-                <h1 className="box-text">Collection Name</h1>
               </div>
               <div className="left-box">
                 <img
@@ -166,9 +169,17 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                 onChange={(e) => setFilterTerm(e.target.value)}
               />
               <button onClick={filterItems}>Filter</button>
+              <button onClick={() => {
+                setShowFilteredItems(false);
+                setFilteredItems([]);
+                setFilterTerm("");
+              }}>Close</button>
               {showFilteredItems && filteredItems.length > 0 && (
+                <>
+                <div>
+                  <h1 className="box-text">Filtered Items</h1>
+                </div>
                 <div className="right-row">
-                  <h1>Filtered Items</h1>
                   {filteredItems.map(
                     (col: CollectionItemModel, index: number) => {
                       return (
@@ -187,31 +198,12 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                       );
                     }
                   )}
-                  <button
-                    onClick={() => {
-                      setShowFilteredItems(false);
-                      setFilteredItems([]);
-                      setFilterTerm("");
-                    }}
-                  >
-                    Close
-                  </button>
                 </div>
+                </>
               )}
 
               {showFilteredItems && filteredItems.length === 0 && (
-                <div className="right-row">
-                  <h1>No Items Found</h1>
-                  <button
-                    onClick={() => {
-                      setShowFilteredItems(false);
-                      setFilteredItems([]);
-                      setFilterTerm("");
-                    }}
-                  >
-                    Close
-                  </button>
-                </div>
+                <h1 className="box-text">No Items Found</h1>
               )}
 
               {!showFilteredItems && (
@@ -252,7 +244,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
               </div>
               )}
 
-              
+
             </div>
             <div className="right-row"></div>
           </div>
