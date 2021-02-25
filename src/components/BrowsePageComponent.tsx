@@ -1,4 +1,3 @@
-import { Auth } from "aws-amplify";
 import React, { useCallback, useEffect } from "react";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";

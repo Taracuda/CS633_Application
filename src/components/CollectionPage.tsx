@@ -1,4 +1,3 @@
-import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
@@ -8,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import CollectionStore from "../Database/CollectionStore";
 import { RouteComponentProps } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { NavbarComponent } from './NavbarComponent';
 import "./CollectionPage.css"
 

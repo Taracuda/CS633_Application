@@ -1,4 +1,3 @@
-import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
@@ -6,7 +5,6 @@ import { ItemBox } from "./ItemBox";
 import { RouteComponentProps } from "react-router-dom";
 import FakeCollectionStore from "./FakeCollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
-import { Link } from "react-router-dom";
 import { NavbarComponent } from './NavbarComponent';
 
 interface MatchParams {

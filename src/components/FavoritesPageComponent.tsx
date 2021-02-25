@@ -1,10 +1,8 @@
-import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
 import CollectRImage from "../images/CollectR.jpg";
 import { ItemBox } from "./ItemBox";
-import { Link } from "react-router-dom";
 import { NavbarComponent } from './NavbarComponent';
 
 export const FavoritesPageComponent: React.FC = () => {

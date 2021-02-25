@@ -1,4 +1,3 @@
-import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { observer } from "mobx-react-lite";
@@ -8,7 +7,6 @@ import { CollectionModel } from "../domain/CollectionModel";
 import { CollectionBox } from "./CollectionBox";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom";
 import { NavbarComponent } from './NavbarComponent';
 
 const element = <FontAwesomeIcon icon={faPlus} className="add-icon" />
