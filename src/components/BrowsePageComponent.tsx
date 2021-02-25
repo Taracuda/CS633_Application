@@ -21,6 +21,7 @@ export const BrowsePageComponent: React.FC = () => {
 
   const fakeStore = useContext(FakeCollectionStore);
 
+  // eslint-disable-next-line
   const createData = () => {
     const tempCollections: CollectionModel[] = [];
     tempCollections.push({
