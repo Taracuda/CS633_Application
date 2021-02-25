@@ -12,6 +12,8 @@ export interface FakeCollectionBoxProps {
 export const FakeCollectionBox: React.FC<FakeCollectionBoxProps> = ({collectionName, collectionId, isPrivate, collectionPhoto}) => {
     const [displayedCollectionName, setDisplayedCollectionName] = useState(collectionName);
 
+    setDisplayedCollectionName(displayedCollectionName);
+
   return (
     <>
       <div className="right-item">
