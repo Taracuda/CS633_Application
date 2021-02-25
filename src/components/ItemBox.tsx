@@ -81,7 +81,7 @@ export const ItemBox: React.FC<ItemBoxProps> = ({
               Edit Description
             </button>
             <button onClick={deleteItem}>Delete</button>
-            
+
             <div onClick={() => {onItemFavorited()}}>
             {favorite}
             </div>

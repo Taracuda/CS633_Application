@@ -1,3 +1,4 @@
+import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { observer } from "mobx-react-lite";
@@ -8,6 +9,7 @@ import { CollectionBox } from "./CollectionBox";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
+import { NavbarComponent } from './NavbarComponent';
 
 const element = <FontAwesomeIcon icon={faPlus} className="add-icon" />
 
@@ -27,7 +29,7 @@ const PageLayoutComponent: React.FC = () => {
   }, [store.collections]);
 
   const onFormSubmit = () => {
-  
+
     store.createCollection({
       collectionId: 0,
       collectionName: collectionTitle,
@@ -35,7 +37,7 @@ const PageLayoutComponent: React.FC = () => {
       collectionPhoto: collectionPhoto,
       items: []
     });
-  
+
     setShowModal(false);
   };
 
@@ -87,11 +89,10 @@ const PageLayoutComponent: React.FC = () => {
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
+            <NavbarComponent/>
               <div className="left-box">
-                <h1 className="box-text">User</h1>
               </div>
               <div className="left-box">
-                <h1 className="box-text">Collections</h1>
               </div>
               <div className="left-box">
                 <img
@@ -118,10 +119,9 @@ const PageLayoutComponent: React.FC = () => {
                 </div>
                 {collections.map((col: CollectionModel, index: number) => {
                   return (
-            <Link to={`/collection/${col.collectionId}`}>
             <CollectionBox
                       collectionId={col.collectionId}
-                        collectionName={col.collectionName}
+                      collectionName={col.collectionName}
                       isPrivate={col.isPrivate}
                       collectionPhoto={col.collectionPhoto}
                       key={index}
@@ -129,7 +129,6 @@ const PageLayoutComponent: React.FC = () => {
                       isPrivateHandler={handlePrivateChanged}
                       nameChangedHandler={handleNameChanged}
                     />
-                    </Link>
                   );
                 })}
               </div>

@@ -41,15 +41,15 @@
   }
 
   .right-side {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     height: 100%;
-
   }
 
   .right-row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .item {
@@ -75,7 +75,7 @@
   }
 
   .left-box {
-    height: 200px;
+    height: 40px;
     width: 300px;
     background-color: #b3c6e7;
     align-items: center;
@@ -98,7 +98,7 @@
     flex-grow: 1;
     height: 80%;
     margin-right: 40px;
-
+    background-color: #1f3864;
   }
 
   .item + .item {

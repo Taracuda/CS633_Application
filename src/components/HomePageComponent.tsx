@@ -8,9 +8,7 @@ export const HomeComponent: React.FC = () => {
     <>
     <img src={CollectRImage} className="CollectR-logo" alt="CollectR-logo" />
       <div>
-        <button className="homepage-button">
-          <Link to={"/login"}>Login</Link>
-        </button>
+        <Link to={"/login"} className="homepage-button">Login</Link>
         <Link to={"/browse"} className="homepage-button">Browse</Link>
       </div>
     </>

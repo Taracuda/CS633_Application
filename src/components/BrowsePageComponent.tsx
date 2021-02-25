@@ -1,20 +1,22 @@
+import { Auth } from "aws-amplify";
 import React, { useCallback, useEffect } from "react";
 import { useContext } from "react";
 import CollectionStore from "../Database/CollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
 import { useState } from "react";
 import "./PageLayoutComponent.css";
-import { CollectionBox } from "./CollectionBox";
+import { FakeCollectionBox } from "./FakeCollectionBox";
 import CollectRImage from "../images/CollectR.jpg";
 import { Link } from "react-router-dom";
 import FakeCollectionStore from "./FakeCollectionStore";
+import { NavbarComponent } from './NavbarComponent';
 
 export const BrowsePageComponent: React.FC = () => {
   const store = useContext(CollectionStore);
 
-  
 
-  const [collections, setCollections] = useState<CollectionModel[]>(() => 
+
+  const [collections, setCollections] = useState<CollectionModel[]>(() =>
     store.collections
   );
 
@@ -355,11 +357,10 @@ export const BrowsePageComponent: React.FC = () => {
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
+            <NavbarComponent/>
               <div className="left-box">
-                <h1 className="box-text">User</h1>
               </div>
               <div className="left-box">
-                <h1 className="box-text">Collections</h1>
               </div>
               <div className="left-box">
                 <img
@@ -376,18 +377,15 @@ export const BrowsePageComponent: React.FC = () => {
                 {/* these divs are temporary. They will be replaced with a component that is styled */}
 
                 {collections.map((col: CollectionModel, index: number) => {
-                   
+
                   return (
             <Link to={`/browseItems/${col.collectionId}`}>
-            <CollectionBox
+            <FakeCollectionBox
                       collectionId={col.collectionId}
                       collectionName={col.collectionName}
                       isPrivate={col.isPrivate}
                       collectionPhoto={col.collectionPhoto}
                       key={index}
-                      onDeleteHandler={() => {}}
-                      isPrivateHandler={() => {}}
-                      nameChangedHandler={() => {}}
                     />
                     </Link>
                   );

@@ -1,3 +1,4 @@
+import { Auth } from "aws-amplify";
 import React, { useContext, useEffect, useState } from "react";
 import CollectRImage from "../images/CollectR.jpg";
 import { CollectionItemModel } from "../domain/CollectionItemModel";
@@ -5,6 +6,8 @@ import { ItemBox } from "./ItemBox";
 import { RouteComponentProps } from "react-router-dom";
 import FakeCollectionStore from "./FakeCollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
+import { Link } from "react-router-dom";
+import { NavbarComponent } from './NavbarComponent';
 
 interface MatchParams {
   id: string;
@@ -57,11 +60,10 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
+            <NavbarComponent/>
               <div className="left-box">
-                <h1 className="box-text">User</h1>
               </div>
               <div className="left-box">
-                <h1 className="box-text">Collection Name</h1>
               </div>
               <div className="left-box">
                 <img
@@ -76,9 +78,17 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
             <div className="right-side">
               <input type="text" value={filterTerm} onChange={(e) => setFilterTerm(e.target.value)} />
               <button onClick={filterItems}>Filter</button>
+              <button onClick={() => {
+                setShowFilteredItems(false);
+                setFilteredItems([]);
+                setFilterTerm("");
+              }}>Close</button>
               {showFilteredItems && filteredItems.length > 0 && (
+                <>
+                <div>
+                  <h1 className="box-text">Filtered Items</h1>
+                </div>
                 <div className="right-row">
-                  <h1>Filtered Items</h1>
                   {filteredItems.map(
                     (col: CollectionItemModel, index: number) => {
                       return (
@@ -97,23 +107,12 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
                       );
                     }
                   )}
-                  <button onClick={() => {
-                    setShowFilteredItems(false);
-                    setFilteredItems([]);
-                    setFilterTerm("");
-                  }}>Close</button>
                 </div>
+                </>
               )}
 
 {showFilteredItems && filteredItems.length === 0 && (
-                <div className="right-row">
-                  <h1>No Items Found</h1>
-                  <button onClick={() => {
-                    setShowFilteredItems(false);
-                    setFilteredItems([]);
-                    setFilterTerm("");
-                  }}>Close</button>
-                </div>
+                <h1 className = "box-text">No Items Found</h1>
               )}
 
               {!showFilteredItems && (
