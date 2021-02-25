@@ -50,6 +50,7 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
     setFilteredItems(items);
     setShowFilteredItems(true);
   }
+  
 
   return (
     <>
@@ -94,6 +95,7 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
                           itemDescription={col.itemDescription}
                           itemPhoto={col.itemPhoto}
                           key={index}
+                          onFavoriteHandler={handleFavorites}
                         />
                       );
                     }
@@ -116,6 +118,7 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
                           itemName={col.itemTitle}
                           itemDescription={col.itemDescription}
                           itemPhoto={col.itemPhoto}
+                          onFavoriteHandler={handleFavorites}
                         />
                       );
                     }
