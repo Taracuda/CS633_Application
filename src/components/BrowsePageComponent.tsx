@@ -357,6 +357,7 @@ export const BrowsePageComponent: React.FC = () => {
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
+            <NavbarComponent/>
               <div className="left-box">
               </div>
               <div className="left-box">
