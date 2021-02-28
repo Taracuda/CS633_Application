@@ -5,6 +5,7 @@ import { FakeItemBox } from "./FakeItemBox";
 import { RouteComponentProps } from "react-router-dom";
 import FakeCollectionStore from "./FakeCollectionStore";
 import { CollectionModel } from "../domain/CollectionModel";
+import { NavbarComponent } from "./NavbarComponent";
 
 interface MatchParams {
   id: string;
@@ -58,6 +59,7 @@ export const FakeCollectionPage: React.FC<FakeCollectionPageProps> = ({
         <div className="main-container container">
           <div className="child item">
             <div className="left-side">
+            <NavbarComponent/>
               <div className="left-box">
               </div>
               <div className="left-box">
